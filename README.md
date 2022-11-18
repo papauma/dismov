@@ -6,7 +6,7 @@ npm build
 npm test
 npm test <path> // To test specific file
 ## eslint
-npm slint
+npm run lint
 
 ### Flujo de la app
 - Al acceder a la aplicación automáticamente se carga el listado de terminales disponibles
