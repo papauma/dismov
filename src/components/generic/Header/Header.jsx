@@ -20,7 +20,6 @@ const Header = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             {NAME_APP}
           </Typography>

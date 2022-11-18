@@ -1,3 +1,4 @@
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { Box, Button, Grid } from '@mui/material'
 import useProduct from 'hooks/useProduct'
 import React, { useState } from 'react'
@@ -70,7 +71,7 @@ const DetailProduct = () => {
                 </select>
               </div>
               {error ? <div class='DetailProduct__error'>{error}</div> : ''}
-              <Button type='submit' variant='outlined'>Add to cart</Button>
+              <Button type='submit' variant='outlined' startIcon={<ShoppingCartOutlinedIcon />}>Add to cart</Button>
             </form>
           </Grid>
         </Grid>
