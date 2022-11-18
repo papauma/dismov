@@ -4,7 +4,6 @@ import Header from 'components/generic/Header/Header';
 import SearchForm from 'components/generic/listProducts/SearchForm/SearchForm';
 import ListProducts from 'pages/listProducts/ListProducts';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Router } from 'react-router-dom';
 import store from 'redux/store';
 import { NAME_APP } from 'utilities/constants';
 
