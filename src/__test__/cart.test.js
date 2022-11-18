@@ -1,12 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from 'App';
+import { render } from '@testing-library/react';
 import Header from 'components/generic/Header/Header';
-import SearchForm from 'components/generic/listProducts/SearchForm/SearchForm';
-import ListProducts from 'pages/listProducts/ListProducts';
 import { Provider } from 'react-redux';
 import { addProductToCart } from 'redux/cartSlice/CartSlice';
 import store from 'redux/store';
-import { NAME_APP } from 'utilities/constants';
 
 function renderWithContext(element) {
   render(

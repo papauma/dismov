@@ -20,9 +20,9 @@ const ListProducts = () => {
       setKeyword(textSearch)
     }, [setKeyword] )
 
-    const handleChangePaginator = (e, p) => {
+    const handleChangePaginator = useCallback((e, p) => {
       setPage(p)
-    }
+    }, [setPage])
 
   return (
     <Box sx={{ flexGrow: 1 }}>

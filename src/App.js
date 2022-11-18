@@ -17,6 +17,12 @@ function App() {
           <Routes>
             <Route path={BASE_URL} element={<ListProducts />} />
             <Route path={DETAIL_URL} element={<DetailProduct />  }></Route>
+            <Route path="*" element={
+              <div>
+                <h2>404 Page not found</h2>
+              </div>
+            }
+          />
           </Routes>
       </BrowserRouter>
     </Container>

@@ -9,6 +9,16 @@ import { BASE_URL, NAME_APP } from 'utilities/constants';
 
 const prepareBreadCrumb = (pathname) => {
   if (pathname === '/') return <Breadcrumbs aria-label="breadcrumb"><Typography sx={{ display: 'flex', alignItems: 'center' }} color="text.primary"><HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />{NAME_APP}</Typography></Breadcrumbs>
+  if (!pathname.match('/detail/')) return (<Breadcrumbs aria-label="breadcrumb">
+      <Link to={BASE_URL}
+        underline="hover"
+        sx={{ display: 'flex', alignItems: 'center' }}
+        color="inherit"
+        href={BASE_URL}
+      >
+        <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+        {NAME_APP}
+    </Link></Breadcrumbs>)
   const splitPath = pathname.split('/')
   return (
     <Breadcrumbs aria-label="breadcrumb">

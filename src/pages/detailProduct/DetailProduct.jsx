@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { addProductToCart } from 'redux/cartSlice/CartSlice'
 
+import './DetailProduct.css'
+
 const DetailProduct = () => {
   const {id} = useParams()
   const cartState = useSelector(state => state.cart)
@@ -68,7 +70,7 @@ const DetailProduct = () => {
                 </select>
               </div>
               {error ? <div class='DetailProduct__error'>{error}</div> : ''}
-              <Button type='submit'>Add to cart</Button>
+              <Button type='submit' variant='outlined'>Add to cart</Button>
             </form>
           </Grid>
         </Grid>
