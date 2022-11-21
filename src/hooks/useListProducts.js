@@ -14,6 +14,8 @@ const useListProducts = () => {
     const [keyword, setKeyword] = useState(null)
     const [loading, setLoading] = useState(true)
 
+    const [error, setError] = useState(false)
+
 
     useEffect(() => {
 
@@ -21,7 +23,7 @@ const useListProducts = () => {
         getAllProducts()
           .then(res => res.json())
           .then(
-            (result) => {              
+            (result) => {
                 setLoading(false)
                 if (!keyword) {
                   localStorage.setItem(LIST_STORAGE, JSON.stringify({list: result, data: new Date()}))
@@ -29,7 +31,7 @@ const useListProducts = () => {
                 setListProducs(responseToProductList(result, keyword))
             },
             (error) => {
-              // acciones a realizar al recibir un KO
+              setError(true)
             })
       }
       setLoading(true)
@@ -41,13 +43,13 @@ const useListProducts = () => {
         if (hoursUntilNow(localDataParsed.data) < 1) {
           setListProducs(responseToProductList(localDataParsed.list, keyword))
           setLoading(false)
-        } else {          
+        } else {
           fetchListProducts()
         }
       }
     }, [keyword])
 
-  return {listProducts, setKeyword, loading}
+  return {listProducts, setKeyword, loading, error}
 }
 
-export default useListProducts;
+export {useListProducts};

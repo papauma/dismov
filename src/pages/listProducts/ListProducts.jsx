@@ -1,6 +1,6 @@
 import ProductSnap from 'components/generic/listProducts/ProductSnap/ProductSnap';
 import SearchForm from 'components/generic/listProducts/SearchForm/SearchForm';
-import useListProducts from 'hooks/useListProducts';
+import {useListProducts} from 'hooks/useListProducts';
 import React, { useCallback, useState } from 'react';
 
 import Box from '@mui/material/Box';
@@ -13,7 +13,7 @@ import { INITIAL_PAGE, PRODS_PER_PAGE } from 'utilities/constants';
 
 
 const ListProducts = () => {
-    const {listProducts, setKeyword, loading} = useListProducts()
+    const {listProducts, setKeyword, loading, error} = useListProducts()
     const [page, setPage] = useState(INITIAL_PAGE)
 
     const handleSubmitSearchText = useCallback((textSearch) => {
@@ -28,11 +28,11 @@ const ListProducts = () => {
     <Box sx={{ flexGrow: 1 }}>
       <SearchForm onSubmit={handleSubmitSearchText}/>
       <Grid container direction="row" justifyContent="center" alignItems="stretch" spacing={0} columns={{ xs: 4, sm: 8, md: 12 }}>
-          {!loading ? listProducts.slice(page * PRODS_PER_PAGE, page * PRODS_PER_PAGE + PRODS_PER_PAGE).map((product) => (
+          {error ? 'Error' : loading ? 'Loading...' : listProducts.length === 0 ? 'No results' : listProducts.slice(page * PRODS_PER_PAGE, page * PRODS_PER_PAGE + PRODS_PER_PAGE).map((product) => (
             <Grid item xs={2} sm={4} md={4} key={product.id}>
               <ProductSnap product={product} key={product.id}/>
             </Grid>
-          )) : 'Loading...'}
+          ))}
       </Grid>
       <Grid container justifyContent="flex-end">
         <Stack spacing={2}>
