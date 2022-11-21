@@ -35,7 +35,6 @@ const DetailProduct = () => {
     }
   }
 
-
   return (
     <>{product ?
       <Box sx={{ flexGrow: 1 }}>
@@ -45,7 +44,7 @@ const DetailProduct = () => {
           <h3>Description</h3>
             <div>
               {Object.keys(product).map((prod, value) => {
-                return typeof product[prod] !== 'string' || typeof product[prod] !== 'number' ? <div key={prod}><u>{prod}</u>:{value}</div> : ''
+                return typeof product[prod] === 'string' || typeof product[prod] === 'number' ? <div key={prod}><u>{prod}</u>: {product[prod]}</div> : ''
               })}
             </div>
           </Grid>
